@@ -41,6 +41,11 @@ def index():
     return render_template('index.html')
 
 
+@app.route('/test-page')
+def test_page():
+    return render_template('test_page.html')
+
+
 @app.route('/profile/<email>')
 @login_required
 def profile(email):
