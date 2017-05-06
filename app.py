@@ -41,9 +41,10 @@ def index():
     return render_template('add_user.html')
 
 
-@app.route('/profile/<username>')
-def profile(username):
-    user = User.query.filter_by(username=username).first()
+@app.route('/profile/<email>')
+@login_required
+def profile(email):
+    user = User.query.filter_by(email=email).first()
     return render_template('profile.html', user=user)
 
 
